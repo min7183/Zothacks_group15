@@ -25,8 +25,8 @@ def get_items(api_response: dict):
     image_list = []
     description_list=[]
     number = api_response['collection']['metadata']['total_hits']
-    if number > 10:
-        number = 10
+    if number > 12:
+        number = 12
     for i in range(number):
         image = d[i]['links'][0]['href']
         description = d[i]['data'][0]['description']
