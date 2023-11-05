@@ -36,13 +36,19 @@ def get_items(api_response: dict, media = None):
         if media == 'image':
             while not api_response2.endswith('.jpg'):
                 api_response2 = requests.get(j_file).json()[(requests.get(j_file).json().index(api_response2)+1)]
-        image = d[i]['links'][0]['href']
+        image = api_response2
         description = d[i]['data'][0]['description']
         image_list.append(image)
         description_list.append(description)
-        print(api_response2)
+        
+        # print(number)
+        # for image in image_list:
+        #     print(image)
+        # for description in description_list:
+        #     print(description)
+
 
     return image_list, description_list
 
 
-get_items(get_all('moon', media = 'video')[0].json(),get_all('moon', media = 'image')[1])
+get_items(get_all('mars', media = 'image')[0].json(),get_all('mars', media = 'image')[1])
