@@ -21,7 +21,7 @@ def home_page(request: Request):
 @app.get("/items", response_class=HTMLResponse)
 def read_item(request: Request, search_string: str):
     #pictures = zip(api_interact.get_items(api_interact.get_all(search_string, media = 'image')[0]).json())
-    pictures1 = api_interact.get_items(api_interact.get_all(search_string, media="image").json())[0]
-    pictures2 = api_interact.get_items(api_interact.get_all(search_string, media="image").json())[1]
+    pictures1 = api_interact.get_items(api_interact.get_all(search_string).json())[0]
+    pictures2 = api_interact.get_items(api_interact.get_all(search_string).json())[1]
     zip(pictures1, pictures2) 
     return templates.TemplateResponse("item.html", {"request": request, "search_string": zip(pictures1, pictures2)})
