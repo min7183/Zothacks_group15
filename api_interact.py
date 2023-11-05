@@ -10,7 +10,7 @@ def get_all(search: str, description = None, keywords= None, media = None, ):
         y = y + '&keywords='+urllib.parse.quote(keywords)
     if media != None:
         y = y + '&media_type='+urllib.parse.quote(media)
-    #print(y)
+    print(y)
     x = requests.get(y)
     return x
 
@@ -35,4 +35,4 @@ def get_items(api_response: dict):
 
     return image_list, description_list
 
-get_items(get_all('moon').json())
+
